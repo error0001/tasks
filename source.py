@@ -1,20 +1,21 @@
 # tasks https://pythonworld.ru/osnovy/tasks.html
 import unittest
 
-def Arithmetic(inA, inB, inOper):
-    if isinstance(inA,str):
-        inA = float(inA)
+
+def arithmetic_(in_a, inB, inOper):
+    if isinstance(in_a,str):
+        in_a = float(in_a)
     if isinstance(inB,str):
         inB = float(inB)
-    if inA != None and inOper != None and inB != None:
+    if in_a != None and inOper != None and inB != None:
         if inOper == '+':
-            return inA + inB
+            return in_a + inB
         if inOper == '-':
-            return inA - inB
+            return in_a - inB
         if inOper == '*':
-            return inA * inB
-        if inOper == '/' and inA != 0 and inB != 0:
-            return float(inA / inB)
+            return in_a * inB
+        if inOper == '/' and in_a != 0 and inB != 0:
+            return float(in_a / inB)
 
 # https://www.w3resource.com/python-exercises/list/
 # tasks about list
@@ -318,20 +319,12 @@ if __name__ == '__main__':
 class ArithmeticTestCase(unittest.TestCase):
 
     def test_plus(self):
-        self.assertEqual(Arithmetic(3,4,'+'), 7)
+        self.assertEqual(arithmetic_(3,4,'+'), 7)
     def test_minus(self):
-        self.assertEqual(Arithmetic(3,4,'-'), -1)
+        self.assertEqual(arithmetic_(3,4,'-'), -1)
     def test_multi(self):
-        self.assertEqual(Arithmetic(3,4,'*'), 12)
+        self.assertEqual(arithmetic_(3,4,'*'), 12)
     def test_divide(self):
-        self.assertEqual(Arithmetic(3,4,'/'), 3/4)
+        self.assertEqual(arithmetic_(3,4,'/'), 3/4)
     #def test_unknow(self):
      #   self.assertEqual(Arithmetic(3,4,'.'), "the unknow operation")
- 
-
-if __name__ == '__main__':
-    print("Start app.")
-    try:
-        print("andrey loh")
-    except SystemExit:
-        print("Error unittest")
