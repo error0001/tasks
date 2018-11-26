@@ -276,31 +276,30 @@ def delete_duplicate_(in_list):
 '''
 
 
-def find_max_words(in_list, in_max_len):
+def find_max_words(sentense, max_word):
     """
-    функция найдет самые большие слова и выдаст листом в ответ
-    :param in_list: лист со словами
-    :param in_max_len:  максимальная длина слова
+    функция ищет самые длинные предложения
+    :param sentense: предложение
+    :param max_word: максимальная длина слова
     :return:
     """
-    wlist = []
-    wset = {}
-    for x in in_list:
-        wlist.append(set(x))
-    print(wlist)
-    for x in wlist:
-        if len(x) > in_max_len:
-            pass
-            #wset.add(x)
-    print(wset)
-    return 0
+    # разобьем предложения на слова и засунем в лист
+    tmp_list = sentense.split()
+    result_list = []
+    # после разобьем все слова и переопределим, так
+    # чтобы буквы были в каждом листе и считаем
+    for item in tmp_list:
+        if len(list(item)) >= max_word:
+            result_list.append(item)
+    return result_list
 
 
 if __name__ == '__main__':
     print("start")
+    print("*************")
     try:
-        ls = ['dfas', 'fas', 'dfas', 'fadsff', 'sd']
-        find_max_words(ls, 3)
+        ls = "asf fefewv edweef dccs qdwqdwed."
+        print(find_max_words(ls, 4))
     except ValueError as valer:
         print('Error: ', valer)
     except StopIteration as estp:
