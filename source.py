@@ -21,6 +21,23 @@ def arithmetic_(in_a, inB, inOper):
 # tasks about list
 
 
+'''#class is example, how you will check your feature
+class ArithmeticTestCase(unittest.TestCase):
+
+    def test_plus(self):
+        self.assertEqual(arithmetic_(3,4,'+'), 7)
+    def test_minus(self):
+        self.assertEqual(arithmetic_(3,4,'-'), -1)
+    def test_multi(self):
+        self.assertEqual(arithmetic_(3,4,'*'), 12)
+    def test_divide(self):
+        self.assertEqual(arithmetic_(3,4,'/'), 3/4)
+    #def test_unknow(self):
+     #   self.assertEqual(Arithmetic(3,4,'.'), "the unknow operation")
+
+'''
+
+
 def merge_two_dicts(in_dict0, in_dict1):
     """
     слиянеие двух словарей для функции _account_tax_first_level, смотреть файл report
@@ -279,6 +296,9 @@ def delete_duplicate_(in_list):
 def find_max_words(sentense, max_word):
     """
     функция ищет самые длинные предложения
+    example:
+        ls = "asf fefewv edweef dccs qdwqdwed."
+        print(find_max_words(ls, 4))
     :param sentense: предложение
     :param max_word: максимальная длина слова
     :return:
@@ -293,37 +313,54 @@ def find_max_words(sentense, max_word):
             result_list.append(item)
     return result_list
 
+# task 11
+''' Write a Python function 
+that takes two lists 
+and returns True if they have at least one common member
+'''
+
+
+def find_common(list0, list1):
+    """
+        ls0 = range(10)
+        ls1 = range(10, 15)
+        print(find_common(ls0, ls1))
+    :param list0:
+    :param list1:
+    :return:
+    """
+    for item in list0:
+        if item in list1:
+            return True
+    return False
+
+
+# task 12
+'''Write a Python program to print 
+a specified list after 
+removing the 0th, 4th and 5th 
+elements. 
+Example:
+Sample List : ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+Expected Output : ['Green', 'White', 'Black']
+'''
+
+
+def func_del_other(in_list):
+    print(in_list)
+    for item in in_list:
+        print(item)
+        if len(item) >= 5:
+            in_list.remove(item)
+    return in_list
+
 
 if __name__ == '__main__':
     print("start")
     print("*************")
     try:
-        ls = "asf fefewv edweef dccs qdwqdwed."
-        print(find_max_words(ls, 4))
-    except ValueError as valer:
-        print('Error: ', valer)
-    except StopIteration as estp:
-        print('Error: ', estp)
-    except OSError as eos:
-        print('Error: ', eos)
-    except NameError as ern:
-        print('Error: ', ern)
+        some_ls = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+        print(func_del_other(some_ls))
     except TypeError as ert:
         print('Error: ', ert)
 
-
-
-
-#class is example, how you will check your feature
-class ArithmeticTestCase(unittest.TestCase):
-
-    def test_plus(self):
-        self.assertEqual(arithmetic_(3,4,'+'), 7)
-    def test_minus(self):
-        self.assertEqual(arithmetic_(3,4,'-'), -1)
-    def test_multi(self):
-        self.assertEqual(arithmetic_(3,4,'*'), 12)
-    def test_divide(self):
-        self.assertEqual(arithmetic_(3,4,'/'), 3/4)
-    #def test_unknow(self):
-     #   self.assertEqual(Arithmetic(3,4,'.'), "the unknow operation")
