@@ -371,7 +371,14 @@ def get_diff_list(in_left, in_right):
 '''
 
 
-def convert 
+def chrs_to_str(in_list):
+    if isinstance(in_list, list):
+        temp_row = ""
+        for x in in_list:
+            if isinstance(x, chr)
+                temp_row += x
+        return temp_row
+    return 0
 
 
 if __name__ == '__main__':
