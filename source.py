@@ -345,7 +345,6 @@ Sample List : ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
 Expected Output : ['Green', 'White', 'Black']
 '''
 
-
 def func_del_other(in_list):
     print(in_list)
     for item in in_list:
@@ -355,12 +354,33 @@ def func_del_other(in_list):
     return in_list
 
 
+''' Task 20 
+написать программу которая
+находит разницу в двух листах
+'''
+
+
+def get_diff_list(in_left, in_right):
+    if isinstance(in_left, list) and isinstance(in_right, list):
+        return list(set(in_left) - set(in_right))
+    return 0
+
+
+''' Task 21
+конвертирует все список символов в строку
+'''
+
+
+def convert 
+
+
 if __name__ == '__main__':
     print("start")
     print("*************")
     try:
-        some_ls = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
-        print(func_del_other(some_ls))
+        l0 = [1, 3, 5, 797867, 43]
+        l1 = [1, 2, 5, 797867, 41]
+        print(get_diff_list(l0, l1))
     except TypeError as ert:
         print('Error: ', ert)
 
