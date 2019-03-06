@@ -371,23 +371,105 @@ def get_diff_list(in_left, in_right):
 '''
 
 
-def chrs_to_str(in_list):
-    if isinstance(in_list, list):
-        temp_row = ""
-        for x in in_list:
-            if isinstance(x, chr)
-                temp_row += x
-        return temp_row
-    return 0
+# def chrs_to_str(in_list):
+#     if isinstance(in_list, list):
+#         temp_row = ""
+#         for x in in_list:
+#             if isinstance(x, chr)
+#                 temp_row += x
+#         return temp_row
+#     return 0
+
+
+from collections import ChainMap
+
+car_parts = {
+    'hood': 500,
+    'engine': 5000,
+    'front_door': 750
+}
+
+car_options = {
+    'A/C': 1000,
+    'Turbo': 2500,
+    'rollbar': 300
+}
+
+car_accessories = {
+    'cover': 100,
+    'hood_ornament': 150,
+    'seat_cover': 99
+}
+
+
+import itertools
+
+
+def stud_sets(s, counter=20):
+    students = set(s)
+    subset4 = itertools.combinations(students, 4)
+    for c4 in subset4:
+        subset3 = itertools.combinations(students - set(c4), 3)
+        for c3 in subset3:
+            subset1 = itertools.combinations(students - set(c4) - set(c3), 1)
+            for c1 in subset1:
+                print(c4, " + ", c3, " + ", c1)
+                counter -= 1
+                if counter == 0:
+                    return None
+
+
+"""
+Создайте словарь, связав его с переменной school, и 
+наполните данными, которые бы отражали количество учащихся в 
+разных классах (1а, 1б, 2б, 6а, 7в и т. п.). 
+Внесите изменения в словарь согласно следующему: 
+а) в одном из классов изменилось количество учащихся, 
+б) в школе появился новый класс, 
+с) в школе был расформирован (удален) другой класс. 
+Вычислите общее количество учащихся в школе.
+"""
+def task0():
+    school = dict()
+    # исп. итератор
+    # '1a': [family, year]
+    # 1 добавляет к строчке цифру, и несколько букв(5 букв), инкремент класса
+
+
+# курс 9
+# задача 1
+# + Реализовать две функции:
+# write_to_file(data)
+# read_file_data().
+# Которые соотвественно: пишут данные в
+# файл и читают данные из файла.
+# def write_to_file(data):
+#     with open(data, mode=mode) as some_data:
+#         return some_data
+from urllib import request, response
+import urllib
+import urllib3
+import json
+# популярный модуль, для запросов, так как упрощает множество строчек кода
+import requests
+
+def get_habr():
+    http = urllib3.PoolManager()
+    r = http.request('GET', 'http://habrahabr.ru/')
+    print('******************')
+    print(r.status)
+    print('******************')
+    print(r.data)
+    print('******************')
+    print(r.headers)
 
 
 if __name__ == '__main__':
-    print("start")
-    print("*************")
     try:
-        l0 = [1, 3, 5, 797867, 43]
-        l1 = [1, 2, 5, 797867, 41]
-        print(get_diff_list(l0, l1))
-    except TypeError as ert:
+        print("*Start********")
+        get_habr()
+    except urllib3.exceptions.MaxRetryError as ert:
         print('Error: ', ert)
+    finally:
+        print("End")
 
